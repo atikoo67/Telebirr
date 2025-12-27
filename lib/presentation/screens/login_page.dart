@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/constant/lists.dart';
+import 'package:telebirr/presentation/screens/main_page.dart';
 import 'package:telebirr/presentation/widgets/mybutton.dart';
 import 'package:telebirr/presentation/widgets/mymenubutton.dart';
 import 'package:telebirr/presentation/widgets/mytextfield.dart';
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                   MyButton(
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(builder: (context) => MainPage()),
                       );
                     },
                     child: Text(

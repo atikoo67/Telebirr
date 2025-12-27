@@ -18,84 +18,81 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: theme.colorScheme.primary,
       appBar: AppBar(
+        toolbarHeight: 30,
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset('assets/ethiotelecom.png', height: 30),
-            Image.asset('assets/telebirr full.jpg', height: 30),
-          ],
-        ),
-      ),
-      floatingActionButton: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 8,
-              offset: Offset(0, 2),
+            Image.asset(
+              'assets/ethiotelecom.png',
+              fit: BoxFit.fitHeight,
+              height: 30,
+            ),
+            Image.asset(
+              'assets/telebirr full.jpg',
+              fit: BoxFit.fitHeight,
+              height: 30,
             ),
           ],
         ),
-        child: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: theme.colorScheme.secondary,
-          child: Icon(
-            Icons.map_sharp,
-            size: 30,
-            color: theme.colorScheme.primary,
-          ),
-        ),
       ),
+
       body: Column(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(children: [Icon(Icons.person), Text('Selam, kenean')]),
-                  MyMenuButton(languages: AppLists.languages),
-                ],
-              ),
+          Container(
+            color: theme.colorScheme.primary,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(children: [Icon(Icons.person), Text('Selam, kenean')]),
+                    Row(
+                      children: [
+                        Icon(Icons.search_rounded),
+                        Icon(Icons.notifications_none_rounded),
+                        MyMenuButton(languages: AppLists.languages),
+                      ],
+                    ),
+                  ],
+                ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('Balance (ETB)'), Icon(Icons.visibility)],
-              ),
-              Text("******"),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text('endekise (ETB)'),
-                          Icon(Icons.visibility),
-                        ],
-                      ),
-                      Text('13638.80'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text('Reward (ETB)'),
-                          Icon(Icons.visibility),
-                        ],
-                      ),
-                      Text('0.00'),
-                    ],
-                  ),
-                ],
-              ),
-            ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text('Balance (ETB)'), Icon(Icons.visibility)],
+                ),
+                Text("******"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text('endekise (ETB)'),
+                            Icon(Icons.visibility),
+                          ],
+                        ),
+                        Text('13638.80'),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text('Reward (ETB)'),
+                            Icon(Icons.visibility),
+                          ],
+                        ),
+                        Text('0.00'),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: ColoredBox(
@@ -132,19 +129,18 @@ class _HomePageState extends State<HomePage> {
                       itemCount: 4,
                       itemBuilder: (context, index, realIndex) {
                         return Container(
-                          margin: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(25),
                             color: Colors.grey.shade200,
                           ),
                           child: Image.asset(
                             'assets/telebirr full.jpg',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitWidth,
                           ),
                         );
                       },
                       options: FlutterCarouselOptions(
-                        height: 200.0, // match child height
+                        height: 150,
                         autoPlay: true,
                         showIndicator: true,
                         slideIndicator: CircularSlideIndicator(
@@ -203,14 +199,17 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          MyButton(
-            onTap: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.qr_code_scanner_rounded),
-                Text('Scan QR', style: theme.textTheme.titleLarge),
-              ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            child: MyButton(
+              onTap: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.qr_code_scanner_rounded),
+                  Text('Scan QR', style: theme.textTheme.titleLarge),
+                ],
+              ),
             ),
           ),
         ],
