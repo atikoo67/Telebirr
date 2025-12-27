@@ -32,7 +32,7 @@ ThemeData theme = ThemeData(
   colorScheme: ColorScheme.light(
     primary: Color.fromRGBO(140, 197, 66, 1.0),
     secondary: Color.fromRGBO(255, 255, 255, 1.0),
-    onSecondary: Color.fromRGBO(242, 244, 239, 1),
+    onSecondary: Color.fromRGBO(213, 214, 212, 1),
     tertiary: Color.fromRGBO(64, 68, 67, 1.0),
     outline: Color.fromRGBO(0, 136, 204, 1.0),
     error: Color.fromRGBO(255, 0, 0, 1.0),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:telebirr/presentation/components/mybutton.dart';
-import 'package:telebirr/presentation/components/mymenubutton.dart';
-import 'package:telebirr/presentation/components/mytextfield.dart';
-import 'package:telebirr/presentation/components/textbutton.dart';
-import 'package:telebirr/presentation/pages/authentication_page.dart';
+import 'package:telebirr/core/constant/lists.dart';
+import 'package:telebirr/presentation/widgets/mybutton.dart';
+import 'package:telebirr/presentation/widgets/mymenubutton.dart';
+import 'package:telebirr/presentation/widgets/mytextfield.dart';
+import 'package:telebirr/presentation/widgets/textbutton.dart';
+import 'package:telebirr/presentation/screens/authentication_page.dart';
+import 'package:telebirr/presentation/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,8 +15,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  List<String> languages = ["English", "አማርኛ", "ትግርኛ", "Oromo"];
-
   TextEditingController? controller;
 
   @override
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [MyMenuButton(languages: languages)],
+                children: [MyMenuButton(languages: AppLists.languages)],
               ),
               Column(
                 spacing: 15,
@@ -91,9 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                   MyButton(
                     onTap: () {
                       Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => AuthenticationPage(),
-                        ),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
                     child: Text(
