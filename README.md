@@ -61,7 +61,7 @@ Contributions, feedback, and suggestions are welcome.
 
 ## **⚠️ Disclaimer**
 
-```
+
 This project is a **UI clone only** and does not perform real financial transactions.
 It is intended solely for **educational and demonstration purposes**.
-```
+
