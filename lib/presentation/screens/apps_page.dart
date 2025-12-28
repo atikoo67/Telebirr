@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telebirr/core/theme/theme.dart';
 
 class AppsPage extends StatefulWidget {
   const AppsPage({super.key});
@@ -10,6 +11,14 @@ class AppsPage extends StatefulWidget {
 class _AppsPageState extends State<AppsPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: theme.colorScheme.primary,
+        title: Text("Apps"),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        actions: [Icon(Icons.search)],
+      ),
+    );
   }
 }
