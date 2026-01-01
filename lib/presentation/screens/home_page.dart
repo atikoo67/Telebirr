@@ -97,105 +97,119 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: ColoredBox(
               color: theme.colorScheme.onSecondary,
-              child: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 8.0,
-                        crossAxisSpacing: 8.0,
-                        childAspectRatio: 1.0,
-                      ),
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SquareCard(
-                            image: Icon(
-                              Icons.monetization_on_outlined,
-                              color: theme.primaryColor,
-                            ),
-                            title: "Telebirr service",
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: FlutterCarousel.builder(
-                      itemCount: 4,
-                      itemBuilder: (context, index, realIndex) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Colors.grey.shade200,
-                          ),
-                          child: Image.asset(
-                            'assets/telebirr full.jpg',
-                            fit: BoxFit.fitWidth,
-                          ),
-                        );
-                      },
-                      options: FlutterCarouselOptions(
-                        height: 150,
-                        autoPlay: true,
-                        showIndicator: true,
-                        slideIndicator: CircularSlideIndicator(
-                          slideIndicatorOptions: SlideIndicatorOptions(
-                            indicatorRadius: 5.0,
-                            indicatorBorderWidth: 1.0,
-                            indicatorBackgroundColor:
-                                Colors.grey, // inactive dots
-                            currentIndicatorColor:
-                                Colors.blueAccent, // active dot
-                            indicatorBorderColor: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          mainAxisSpacing: 10.0,
 
-                  SliverToBoxAdapter(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Transaction Details',
-                          style: theme.textTheme.headlineLarge,
+                          childAspectRatio: 1.0,
                         ),
-                        Icon(Icons.arrow_forward_ios, size: 12),
-                      ],
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 8.0,
-                        crossAxisSpacing: 8.0,
-                        childAspectRatio: 1.0,
-                      ),
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SquareCard(
-                            image: Icon(
-                              Icons.monetization_on_outlined,
-                              color: theme.primaryColor,
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: SquareCard(
+                              image: Image.asset(
+                                'assets/ethiotelecom logo.jpg',
+
+                                cacheHeight: 30,
+                              ),
+                              title: "Telebirr service",
                             ),
-                            title: "Telebirr service",
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                    SliverPadding(
+                      sliver: SliverToBoxAdapter(
+                        child: FlutterCarousel.builder(
+                          itemCount: 4,
+                          itemBuilder: (context, index, realIndex) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: Colors.grey.shade200,
+                              ),
+                              child: Image.asset(
+                                'assets/telebirr full.jpg',
+                                fit: BoxFit.fitWidth,
+                              ),
+                            );
+                          },
+                          options: FlutterCarouselOptions(
+                            height: 150,
+                            autoPlay: true,
+                            showIndicator: true,
+                            slideIndicator: CircularSlideIndicator(
+                              slideIndicatorOptions: SlideIndicatorOptions(
+                                indicatorRadius: 5.0,
+                                indicatorBorderWidth: 1.0,
+                                indicatorBackgroundColor:
+                                    Colors.grey, // inactive dots
+                                currentIndicatorColor:
+                                    Colors.blueAccent, // active dot
+                                indicatorBorderColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                    ),
+
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 5,
+                      ),
+                      sliver: SliverToBoxAdapter(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Transaction Details',
+                              style: theme.textTheme.headlineLarge,
+                            ),
+                            Icon(Icons.arrow_forward_ios, size: 12),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SliverToBoxAdapter(
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          mainAxisSpacing: 10.0,
+
+                          childAspectRatio: 1.0,
+                        ),
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: SquareCard(
+                              image: Image.asset(
+                                'assets/ethiotelecom logo.jpg',
+
+                                cacheHeight: 30,
+                              ),
+                              title: "Telebirr service",
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
