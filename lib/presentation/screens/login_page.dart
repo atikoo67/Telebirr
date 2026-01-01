@@ -5,8 +5,6 @@ import 'package:telebirr/presentation/widgets/mybutton.dart';
 import 'package:telebirr/presentation/widgets/mymenubutton.dart';
 import 'package:telebirr/presentation/widgets/mytextfield.dart';
 import 'package:telebirr/presentation/widgets/textbutton.dart';
-import 'package:telebirr/presentation/screens/authentication_page.dart';
-import 'package:telebirr/presentation/screens/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
