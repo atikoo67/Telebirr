@@ -33,10 +33,10 @@ ThemeData theme = ThemeData(
     primary: Color.fromRGBO(140, 197, 66, 1.0),
     secondary: Color.fromRGBO(255, 255, 255, 1.0),
     onSecondary: Color.fromRGBO(213, 214, 212, 1),
-    tertiary: Color.fromRGBO(64, 68, 67, 1.0),
+    tertiary: Color.fromRGBO(93, 96, 95, 1),
     outline: Color.fromRGBO(0, 136, 204, 1.0),
     error: Color.fromRGBO(255, 0, 0, 1.0),
     scrim: Color.fromRGBO(255, 204, 0, 1.0),
-    shadow: Color.fromARGB(255, 255, 179, 2),
+    shadow: Color.fromARGB(255, 207, 207, 207),
   ),
 );
