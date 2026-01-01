@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telebirr/core/theme/theme.dart';
 
 class SquareCard extends StatelessWidget {
   final Widget image;
@@ -24,11 +25,15 @@ class SquareCard extends StatelessWidget {
         boxShadow: boxShadow,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 10,
+        mainAxisAlignment: MainAxisAlignment.start,
+        spacing: 5,
         children: [
           image,
-          Text(title, textAlign: TextAlign.center),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: theme.textTheme.labelMedium!.copyWith(fontSize: 12),
+          ),
         ],
       ),
     );
