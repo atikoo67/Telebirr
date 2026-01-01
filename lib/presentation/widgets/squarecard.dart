@@ -25,14 +25,14 @@ class SquareCard extends StatelessWidget {
         boxShadow: boxShadow,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         spacing: 5,
         children: [
           image,
           Text(
             title,
             textAlign: TextAlign.center,
-            style: theme.textTheme.labelMedium!.copyWith(fontSize: 12),
+            style: theme.textTheme.labelMedium,
           ),
         ],
       ),
