@@ -50,10 +50,10 @@ class _MyMenuButtonState extends State<MyMenuButton> {
               },
               child: Row(
                 children: [
-                  Text(selectedLang!, style: theme.textTheme.labelMedium),
+                  Text(selectedLang!, style: theme.textTheme.displayMedium),
                   Icon(
                     Icons.arrow_drop_down_rounded,
-                    color: theme.textTheme.labelMedium!.color,
+                    color: theme.textTheme.displayMedium!.color,
                   ),
                 ],
               ),

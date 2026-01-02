@@ -48,7 +48,15 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(children: [Icon(Icons.person), Text('Selam, kenean')]),
+                    Row(
+                      children: [
+                        Icon(Icons.person),
+                        Text(
+                          'Selam, kenean',
+                          style: theme.textTheme.displayMedium,
+                        ),
+                      ],
+                    ),
                     Row(
                       children: [
                         Icon(Icons.search_rounded),
@@ -61,9 +69,12 @@ class _HomePageState extends State<HomePage> {
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text('Balance (ETB)'), Icon(Icons.visibility)],
+                  children: [
+                    Text('Balance (ETB)', style: theme.textTheme.displayMedium),
+                    Icon(Icons.visibility),
+                  ],
                 ),
-                Text("******"),
+                Text("******", style: theme.textTheme.displayMedium),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -71,22 +82,28 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Row(
                           children: [
-                            Text('endekise (ETB)'),
+                            Text(
+                              'endekise (ETB)',
+                              style: theme.textTheme.displayMedium,
+                            ),
                             Icon(Icons.visibility),
                           ],
                         ),
-                        Text('13638.80'),
+                        Text('13638.80', style: theme.textTheme.displayMedium),
                       ],
                     ),
                     Column(
                       children: [
                         Row(
                           children: [
-                            Text('Reward (ETB)'),
+                            Text(
+                              'Reward (ETB)',
+                              style: theme.textTheme.displayMedium,
+                            ),
                             Icon(Icons.visibility),
                           ],
                         ),
-                        Text('0.00'),
+                        Text('0.00', style: theme.textTheme.displayMedium),
                       ],
                     ),
                   ],
