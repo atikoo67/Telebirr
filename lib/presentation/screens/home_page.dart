@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Container(
+            padding: const EdgeInsets.all(15.0),
             color: theme.colorScheme.primary,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,8 +60,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.search_rounded),
-                        Icon(Icons.notifications_none_rounded),
+                        Icon(
+                          Icons.search_rounded,
+                          size: theme.textTheme.displayMedium!.fontSize,
+                        ),
+                        Icon(
+                          Icons.notifications_none_rounded,
+                          size: theme.textTheme.displayMedium!.fontSize,
+                        ),
                         MyMenuButton(languages: AppLists.languages),
                       ],
                     ),
@@ -71,10 +78,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Balance (ETB)', style: theme.textTheme.displayMedium),
-                    Icon(Icons.visibility),
+                    Icon(
+                      Icons.visibility,
+                      size: theme.textTheme.displayMedium!.fontSize,
+                    ),
                   ],
                 ),
-                Text("******", style: theme.textTheme.displayMedium),
+                Text("******", style: theme.textTheme.titleLarge),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -83,10 +93,13 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           children: [
                             Text(
-                              'endekise (ETB)',
+                              'Endekise (ETB)',
                               style: theme.textTheme.displayMedium,
                             ),
-                            Icon(Icons.visibility),
+                            Icon(
+                              Icons.visibility,
+                              size: theme.textTheme.displayMedium!.fontSize,
+                            ),
                           ],
                         ),
                         Text('13638.80', style: theme.textTheme.displayMedium),
@@ -100,7 +113,10 @@ class _HomePageState extends State<HomePage> {
                               'Reward (ETB)',
                               style: theme.textTheme.displayMedium,
                             ),
-                            Icon(Icons.visibility),
+                            Icon(
+                              Icons.visibility,
+                              size: theme.textTheme.displayMedium!.fontSize,
+                            ),
                           ],
                         ),
                         Text('0.00', style: theme.textTheme.displayMedium),
@@ -113,7 +129,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: ColoredBox(
-              color: theme.colorScheme.onSecondary,
+              color: theme.colorScheme.shadow,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CustomScrollView(
@@ -128,7 +144,7 @@ class _HomePageState extends State<HomePage> {
 
                           childAspectRatio: 1.0,
                         ),
-                        itemCount: 10,
+                        itemCount: 8,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -209,7 +225,7 @@ class _HomePageState extends State<HomePage> {
 
                           childAspectRatio: 1.0,
                         ),
-                        itemCount: 10,
+                        itemCount: 12,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
