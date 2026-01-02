@@ -37,6 +37,6 @@ ThemeData theme = ThemeData(
     outline: Color.fromRGBO(0, 136, 204, 1.0),
     error: Color.fromRGBO(255, 0, 0, 1.0),
     scrim: Color.fromRGBO(255, 204, 0, 1.0),
-    shadow: Color.fromARGB(255, 207, 207, 207),
+    shadow: Color.fromARGB(255, 230, 230, 230),
   ),
 );
