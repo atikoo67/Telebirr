@@ -14,6 +14,13 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: theme.colorScheme.primary,
+        title: Text('Payment'),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        actions: [Icon(Icons.search)],
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
