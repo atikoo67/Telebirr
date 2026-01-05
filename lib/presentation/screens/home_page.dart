@@ -14,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isVisibleBalance = false;
+  bool isVisibleEndekise = false;
+  bool isVisibleReward = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,8 +63,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.search_rounded, size: 23),
-                        Icon(Icons.notifications_none_rounded, size: 23),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(Icons.search_rounded, size: 23),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.notifications_none_rounded,
+                            size: 23,
+                          ),
+                        ),
                         MyMenuButton(languages: AppLists.languages),
                       ],
                     ),
@@ -73,19 +85,32 @@ class _HomePageState extends State<HomePage> {
                   spacing: 3,
                   children: [
                     Text('Balance (ETB)', style: theme.textTheme.displayMedium),
-                    Icon(
-                      Icons.visibility,
-                      size: theme.textTheme.displayMedium!.fontSize,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isVisibleBalance = !isVisibleBalance;
+                        });
+                      },
+                      child: Icon(
+                        isVisibleBalance
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        size: theme.textTheme.displayMedium!.fontSize,
+                      ),
                     ),
                   ],
                 ),
                 Text(
-                  "******",
-                  style: theme.textTheme.titleLarge!.copyWith(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2,
-                  ),
+                  isVisibleBalance ? "24654.32" : "******",
+                  style: isVisibleBalance
+                      ? theme.textTheme.titleLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                        )
+                      : theme.textTheme.titleLarge!.copyWith(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2,
+                        ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,36 +119,62 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          spacing: 3,
                           children: [
                             Text(
                               'Endekise (ETB)',
                               style: theme.textTheme.displayMedium,
                             ),
-                            Icon(
-                              Icons.visibility,
-                              size: theme.textTheme.displayMedium!.fontSize,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isVisibleEndekise = !isVisibleEndekise;
+                                });
+                              },
+                              child: Icon(
+                                isVisibleEndekise
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                size: theme.textTheme.displayMedium!.fontSize,
+                              ),
                             ),
                           ],
                         ),
-                        Text('13638.80', style: theme.textTheme.displayMedium),
+                        Text(
+                          isVisibleEndekise ? "24654.32" : '******',
+                          style: theme.textTheme.displayMedium,
+                        ),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          spacing: 3,
                           children: [
                             Text(
                               'Reward (ETB)',
                               style: theme.textTheme.displayMedium,
                             ),
-                            Icon(
-                              Icons.visibility,
-                              size: theme.textTheme.displayMedium!.fontSize,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isVisibleReward = !isVisibleReward;
+                                });
+                              },
+                              child: Icon(
+                                isVisibleReward
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                size: theme.textTheme.displayMedium!.fontSize,
+                              ),
                             ),
                           ],
                         ),
-                        Text('0.00', style: theme.textTheme.displayMedium),
+                        Text(
+                          isVisibleReward ? "24654.32" : '******',
+                          style: theme.textTheme.displayMedium,
+                        ),
                       ],
                     ),
                   ],
@@ -197,18 +248,32 @@ class _HomePageState extends State<HomePage> {
 
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(
-                      vertical: 10,
+                      vertical: 15,
                       horizontal: 5,
                     ),
                     sliver: SliverToBoxAdapter(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            'Transaction Details',
-                            style: theme.textTheme.headlineLarge,
+                          GestureDetector(
+                            onTap: () {
+                              print('  Transaction Details tapped');
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Transaction Details',
+                                  style: theme.textTheme.headlineLarge!
+                                      .copyWith(fontWeight: FontWeight.w600),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 13,
+                                  color: theme.textTheme.headlineLarge!.color,
+                                ),
+                              ],
+                            ),
                           ),
-                          Icon(Icons.arrow_forward_ios, size: 12),
                         ],
                       ),
                     ),
