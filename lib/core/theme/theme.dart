@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 ThemeData theme = ThemeData(
+  fontFamily: 'LexendDeca-VariableFont_wght',
   iconTheme: IconThemeData(color: Color.fromRGBO(255, 255, 255, 1.0)),
   textTheme: TextTheme(
     // for  link text
