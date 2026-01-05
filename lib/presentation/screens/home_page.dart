@@ -209,24 +209,30 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ),
+
                   SliverPadding(
                     sliver: SliverToBoxAdapter(
                       child: FlutterCarousel.builder(
                         itemCount: 4,
                         itemBuilder: (context, index, realIndex) {
                           return Container(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4,
+                              vertical: 10,
+                            ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               color: Colors.grey.shade200,
                             ),
                             child: Image.asset(
-                              'assets/telebirr full.jpg',
+                              'assets/image.png',
                               fit: BoxFit.fitWidth,
                             ),
                           );
                         },
                         options: FlutterCarouselOptions(
-                          height: 150,
+                          height: 180,
                           autoPlay: true,
                           showIndicator: true,
                           slideIndicator: CircularSlideIndicator(
