@@ -28,6 +28,7 @@ ThemeData theme = ThemeData(
     displayMedium: TextStyle(
       color: Color.fromRGBO(255, 255, 255, 1.0),
       fontSize: 15,
+      fontWeight: FontWeight.w600,
     ),
   ),
   colorScheme: ColorScheme.light(
@@ -38,6 +39,6 @@ ThemeData theme = ThemeData(
     outline: Color.fromRGBO(0, 136, 204, 1.0),
     error: Color.fromRGBO(255, 0, 0, 1.0),
     scrim: Color.fromRGBO(255, 204, 0, 1.0),
-    shadow: Color.fromARGB(255, 230, 230, 230),
+    shadow: Color.fromARGB(255, 239, 238, 238),
   ),
 );

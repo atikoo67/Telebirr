@@ -20,19 +20,23 @@ class SquareCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: color ?? Theme.of(context).cardColor,
+        color: color ?? theme.colorScheme.secondary,
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: boxShadow,
       ),
+      padding: EdgeInsets.symmetric(vertical: 12),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 5,
+        spacing: 4,
         children: [
           image,
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.labelMedium,
+          Flexible(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.labelMedium!.copyWith(fontSize: 13),
+            ),
           ),
         ],
       ),

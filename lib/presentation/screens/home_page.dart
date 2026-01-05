@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
         toolbarHeight: 30,
         automaticallyImplyLeading: false,
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.person),
+                        CircleAvatar(child: Icon(Icons.person, size: 30)),
                         Text(
                           'Selam, kenean',
                           style: theme.textTheme.displayMedium,
@@ -59,14 +60,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.search_rounded,
-                          size: theme.textTheme.displayMedium!.fontSize,
-                        ),
-                        Icon(
-                          Icons.notifications_none_rounded,
-                          size: theme.textTheme.displayMedium!.fontSize,
-                        ),
+                        Icon(Icons.search_rounded, size: 23),
+                        Icon(Icons.notifications_none_rounded, size: 23),
                         MyMenuButton(languages: AppLists.languages),
                       ],
                     ),
@@ -75,6 +70,7 @@ class _HomePageState extends State<HomePage> {
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 3,
                   children: [
                     Text('Balance (ETB)', style: theme.textTheme.displayMedium),
                     Icon(
@@ -83,7 +79,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                Text("******", style: theme.textTheme.titleLarge),
+                Text(
+                  "******",
+                  style: theme.textTheme.titleLarge!.copyWith(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -129,121 +132,110 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: ColoredBox(
-              color: theme.colorScheme.shadow,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4,
-                          mainAxisSpacing: 10.0,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 10.0,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount: 8,
+                      itemBuilder: (context, index) {
+                        return SquareCard(
+                          image: Image.asset(
+                            'assets/ethiotelecom logo.jpg',
 
-                          childAspectRatio: 1.0,
-                        ),
-                        itemCount: 8,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: SquareCard(
-                              image: Image.asset(
-                                'assets/ethiotelecom logo.jpg',
-
-                                cacheHeight: 30,
-                              ),
-                              title: "Telebirr service",
+                            cacheHeight: 30,
+                          ),
+                          title: "Telebirr service ",
+                        );
+                      },
+                    ),
+                  ),
+                  SliverPadding(
+                    sliver: SliverToBoxAdapter(
+                      child: FlutterCarousel.builder(
+                        itemCount: 4,
+                        itemBuilder: (context, index, realIndex) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.grey.shade200,
+                            ),
+                            child: Image.asset(
+                              'assets/telebirr full.jpg',
+                              fit: BoxFit.fitWidth,
                             ),
                           );
                         },
-                      ),
-                    ),
-                    SliverPadding(
-                      sliver: SliverToBoxAdapter(
-                        child: FlutterCarousel.builder(
-                          itemCount: 4,
-                          itemBuilder: (context, index, realIndex) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Colors.grey.shade200,
-                              ),
-                              child: Image.asset(
-                                'assets/telebirr full.jpg',
-                                fit: BoxFit.fitWidth,
-                              ),
-                            );
-                          },
-                          options: FlutterCarouselOptions(
-                            height: 150,
-                            autoPlay: true,
-                            showIndicator: true,
-                            slideIndicator: CircularSlideIndicator(
-                              slideIndicatorOptions: SlideIndicatorOptions(
-                                indicatorRadius: 5.0,
-                                indicatorBorderWidth: 1.0,
-                                indicatorBackgroundColor:
-                                    Colors.grey, // inactive dots
-                                currentIndicatorColor:
-                                    Colors.blueAccent, // active dot
-                                indicatorBorderColor: Colors.white,
-                              ),
+                        options: FlutterCarouselOptions(
+                          height: 150,
+                          autoPlay: true,
+                          showIndicator: true,
+                          slideIndicator: CircularSlideIndicator(
+                            slideIndicatorOptions: SlideIndicatorOptions(
+                              indicatorRadius: 5.0,
+                              indicatorBorderWidth: 1.0,
+                              indicatorBackgroundColor:
+                                  Colors.grey, // inactive dots
+                              currentIndicatorColor:
+                                  Colors.blueAccent, // active dot
+                              indicatorBorderColor: Colors.white,
                             ),
                           ),
                         ),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
                     ),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                  ),
 
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 5,
-                      ),
-                      sliver: SliverToBoxAdapter(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Transaction Details',
-                              style: theme.textTheme.headlineLarge,
-                            ),
-                            Icon(Icons.arrow_forward_ios, size: 12),
-                          ],
-                        ),
-                      ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 5,
                     ),
-                    SliverToBoxAdapter(
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4,
-                          mainAxisSpacing: 10.0,
-
-                          childAspectRatio: 1.0,
-                        ),
-                        itemCount: 12,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: SquareCard(
-                              image: Image.asset(
-                                'assets/ethiotelecom logo.jpg',
-
-                                cacheHeight: 30,
-                              ),
-                              title: "Telebirr service",
-                            ),
-                          );
-                        },
+                    sliver: SliverToBoxAdapter(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Transaction Details',
+                            style: theme.textTheme.headlineLarge,
+                          ),
+                          Icon(Icons.arrow_forward_ios, size: 12),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 10.0,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemCount: 12,
+                      itemBuilder: (context, index) {
+                        return SquareCard(
+                          image: Image.asset(
+                            'assets/ethiotelecom logo.jpg',
+
+                            cacheHeight: 30,
+                          ),
+                          title: "Telebirr service",
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
