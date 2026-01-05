@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   bool isVisibleReward = false;
   @override
   Widget build(BuildContext context) {
+    final serviceExp = ExampleServices.services;
     return Scaffold(
       backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
@@ -101,16 +102,11 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 Text(
-                  isVisibleBalance ? "24654.32" : "******",
-                  style: isVisibleBalance
-                      ? theme.textTheme.titleLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                        )
-                      : theme.textTheme.titleLarge!.copyWith(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 2,
-                        ),
+                  isVisibleBalance ? "201.32" : "******",
+                  style: theme.textTheme.titleLarge!.copyWith(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,11 +179,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
+            child: CustomScrollView(
+              slivers: [
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                  sliver: SliverToBoxAdapter(
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
@@ -196,118 +195,116 @@ class _HomePageState extends State<HomePage> {
                         mainAxisSpacing: 10.0,
                         crossAxisSpacing: 10,
                       ),
-                      itemCount: 8,
+                      itemCount: serviceExp.length,
                       itemBuilder: (context, index) {
                         return SquareCard(
-                          image: Image.asset(
-                            'assets/ethiotelecom logo.jpg',
+                          image: serviceExp[index][1],
+                          //  Image.asset(
+                          //   'assets/ethiotelecom logo.jpg',
 
-                            cacheHeight: 30,
-                          ),
-                          title: "Telebirr service ",
+                          //   cacheHeight: 30,
+                          // ),
+                          title: serviceExp[index][0],
                         );
                       },
                     ),
                   ),
+                ),
 
-                  SliverPadding(
-                    sliver: SliverToBoxAdapter(
-                      child: FlutterCarousel.builder(
-                        itemCount: 4,
-                        itemBuilder: (context, index, realIndex) {
-                          return Container(
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 4,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: Colors.grey.shade200,
-                            ),
-                            child: Image.asset(
-                              'assets/image.png',
-                              fit: BoxFit.fitWidth,
-                            ),
-                          );
-                        },
-                        options: FlutterCarouselOptions(
-                          height: 180,
-                          autoPlay: true,
-                          showIndicator: true,
-                          slideIndicator: CircularSlideIndicator(
-                            slideIndicatorOptions: SlideIndicatorOptions(
-                              indicatorRadius: 5.0,
-                              indicatorBorderWidth: 1.0,
-                              indicatorBackgroundColor:
-                                  Colors.grey, // inactive dots
-                              currentIndicatorColor:
-                                  Colors.blueAccent, // active dot
-                              indicatorBorderColor: Colors.white,
-                            ),
-                          ),
+                SliverToBoxAdapter(
+                  child: FlutterCarousel.builder(
+                    itemCount: 4,
+                    itemBuilder: (context, index, realIndex) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        padding: EdgeInsets.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.grey.shade200,
+                        ),
+                        child: Image.asset(
+                          'assets/image.png',
+                          fit: BoxFit.fitWidth,
+                        ),
+                      );
+                    },
+                    options: FlutterCarouselOptions(
+                      enableInfiniteScroll: true,
+                      height: 160,
+                      viewportFraction: 0.9,
+                      autoPlay: true,
+                      showIndicator: true,
+                      slideIndicator: CircularSlideIndicator(
+                        slideIndicatorOptions: SlideIndicatorOptions(
+                          indicatorRadius: 5.0,
+                          indicatorBorderWidth: 1.40,
+                          indicatorBackgroundColor: theme.colorScheme.secondary,
+                          currentIndicatorColor: theme.colorScheme.primary,
+                          indicatorBorderColor: theme.colorScheme.primary,
+                          enableAnimation: true,
                         ),
                       ),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
                   ),
+                ),
 
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                      horizontal: 5,
-                    ),
-                    sliver: SliverToBoxAdapter(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              print('  Transaction Details tapped');
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Transaction Details',
-                                  style: theme.textTheme.headlineLarge!
-                                      .copyWith(fontWeight: FontWeight.w600),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 5,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            print('  Transaction Details tapped');
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                'Transaction Details',
+                                style: theme.textTheme.headlineLarge!.copyWith(
+                                  fontWeight: FontWeight.w600,
                                 ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 13,
-                                  color: theme.textTheme.headlineLarge!.color,
-                                ),
-                              ],
-                            ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 13,
+                                color: theme.textTheme.headlineLarge!.color,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 10.0,
-                        crossAxisSpacing: 10,
-                      ),
-                      itemCount: 12,
-                      itemBuilder: (context, index) {
-                        return SquareCard(
-                          image: Image.asset(
-                            'assets/ethiotelecom logo.jpg',
+                ),
+                SliverToBoxAdapter(
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 10.0,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemCount: serviceExp.length,
+                    itemBuilder: (context, index) {
+                      return SquareCard(
+                        image: serviceExp[index][1],
+                        //  Image.asset(
+                        //   'assets/ethiotelecom logo.jpg',
 
-                            cacheHeight: 30,
-                          ),
-                          title: "Telebirr service",
-                        );
-                      },
-                    ),
+                        //   cacheHeight: 30,
+                        // ),
+                        title: serviceExp[index][0],
+                      );
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Padding(
