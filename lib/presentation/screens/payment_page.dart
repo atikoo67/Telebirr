@@ -25,6 +25,8 @@ class _PaymentPageState extends State<PaymentPage> {
     return Scaffold(
       backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
+        actionsPadding: EdgeInsets.symmetric(horizontal: 15),
+        foregroundColor: theme.colorScheme.secondary,
         backgroundColor: theme.colorScheme.primary,
         title: Text('Payment'),
         centerTitle: true,

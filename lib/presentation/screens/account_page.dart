@@ -16,8 +16,10 @@ class _AccountPageState extends State<AccountPage> {
     return Scaffold(
       backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
+        actionsPadding: EdgeInsets.symmetric(horizontal: 15),
+        foregroundColor: theme.colorScheme.secondary,
         backgroundColor: theme.colorScheme.primary,
-        title: Text('Payment'),
+        title: Text('Account'),
         centerTitle: true,
         automaticallyImplyLeading: false,
         actions: [Icon(Icons.search)],

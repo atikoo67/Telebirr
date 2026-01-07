@@ -14,6 +14,8 @@ class _AppsPageState extends State<AppsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actionsPadding: EdgeInsets.symmetric(horizontal: 15),
+        foregroundColor: theme.colorScheme.secondary,
         backgroundColor: theme.colorScheme.primary,
         title: Text("Apps"),
         centerTitle: true,
