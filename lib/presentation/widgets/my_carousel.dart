@@ -30,7 +30,7 @@ class MyCarousel extends StatelessWidget {
       },
       options: FlutterCarouselOptions(
         enableInfiniteScroll: true,
-        height: 160,
+        height: 150,
         viewportFraction: viewportFraction,
         autoPlay: true,
         showIndicator: true,
