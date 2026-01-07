@@ -194,6 +194,7 @@ class _HomePageState extends State<HomePage> {
                         crossAxisCount: 4,
                         mainAxisSpacing: 10.0,
                         crossAxisSpacing: 10,
+                        childAspectRatio: 0.8,
                       ),
                       itemCount: serviceExp.length,
                       itemBuilder: (context, index) {
@@ -241,7 +242,6 @@ class _HomePageState extends State<HomePage> {
                           indicatorBackgroundColor: theme.colorScheme.secondary,
                           currentIndicatorColor: theme.colorScheme.primary,
                           indicatorBorderColor: theme.colorScheme.primary,
-                          enableAnimation: true,
                         ),
                       ),
                     ),
@@ -289,6 +289,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisCount: 4,
                       mainAxisSpacing: 10.0,
                       crossAxisSpacing: 10,
+                      childAspectRatio: 0.8,
                     ),
                     itemCount: serviceExp.length,
                     itemBuilder: (context, index) {
