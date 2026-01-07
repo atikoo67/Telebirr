@@ -1,3 +1,4 @@
+import 'package:accordion/accordion.dart';
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/theme/theme.dart';
 import 'package:telebirr/presentation/widgets/squarecard.dart';
@@ -10,9 +11,19 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
+  int? expandedIndex;
+  final categories = [
+    "Utility",
+    "Transport Service",
+    "Entertainment Service",
+    "E-commerce",
+    "Event and Ticketing",
+    "Education fee",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
         title: Text('Payment'),
         centerTitle: true,
@@ -25,34 +36,60 @@ class _PaymentPageState extends State<PaymentPage> {
             child: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
-                  child: ExpansionPanelList.radio(
-                    materialGapSize: 20,
-                    dividerColor: Colors.transparent,
-                    children: List.generate(10, (index) {
-                      return ExpansionPanelRadio(
-                        value: index,
-                        headerBuilder: (context, isExpanded) => ListTile(
-                          title: Text('Tile $index'),
-                          tileColor: theme.colorScheme.outline,
+                  child: Accordion(
+                    headerBackgroundColorOpened: theme.colorScheme.outline,
+                    headerBackgroundColor: theme.colorScheme.secondary,
+
+                    contentBorderColor: Colors.transparent,
+                    openAndCloseAnimation: false,
+                    children: [
+                      for (int i = 0; i < categories.length; i++)
+                        AccordionSection(
+                          rightIcon: Icon(
+                            Icons.keyboard_arrow_down,
+                            color: expandedIndex == i
+                                ? theme.colorScheme.secondary
+                                : theme.colorScheme.tertiary,
+                          ),
+                          headerPadding: EdgeInsets.all(10),
+                          isOpen: expandedIndex == i,
+                          header: Text(
+                            categories[i],
+                            style: theme.textTheme.labelMedium,
+                          ),
+                          content: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GridView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 4,
+                                  ),
+                              itemCount: 9,
+                              itemBuilder: (context, index) {
+                                return SquareCard(
+                                  title: 'Service ${index + 1}',
+                                  image: Icon(
+                                    Icons.payment,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          onOpenSection: () {
+                            setState(() {
+                              expandedIndex = i;
+                            });
+                          },
+                          onCloseSection: () {
+                            setState(() {
+                              expandedIndex = null;
+                            });
+                          },
                         ),
-                        body: Wrap(
-                          spacing: 8,
-                          runSpacing: 8,
-                          children: List.generate(4, (gridIndex) {
-                            return SizedBox(
-                              width: 100,
-                              child: SquareCard(
-                                image: Icon(
-                                  Icons.monetization_on_outlined,
-                                  color: theme.primaryColor,
-                                ),
-                                title: "Telebirr service",
-                              ),
-                            );
-                          }),
-                        ),
-                      );
-                    }),
+                    ],
                   ),
                 ),
               ],
