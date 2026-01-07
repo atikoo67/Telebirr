@@ -60,7 +60,6 @@ class NavItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Icon with blue background when active
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
@@ -69,7 +68,9 @@ class NavItem extends StatelessWidget {
             ),
             child: Icon(
               icon,
-              color: isActive ? inactiveColor : inactiveColor,
+              color: isActive
+                  ? activeColor ?? theme.colorScheme.secondary
+                  : inactiveColor ?? theme.colorScheme.shadow,
               size: 24,
             ),
           ),
@@ -79,7 +80,9 @@ class NavItem extends StatelessWidget {
             label,
             style: TextStyle(
               fontSize: 12,
-              color: isActive ? inactiveColor : inactiveColor,
+              color: isActive
+                  ? activeColor ?? theme.colorScheme.secondary
+                  : inactiveColor ?? theme.colorScheme.shadow,
               fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
             ),
           ),

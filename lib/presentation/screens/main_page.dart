@@ -5,7 +5,7 @@ import 'package:telebirr/presentation/screens/apps_page.dart';
 import 'package:telebirr/presentation/screens/engage_page.dart';
 import 'package:telebirr/presentation/screens/home_page.dart';
 import 'package:telebirr/presentation/screens/payment_page.dart';
-import 'package:telebirr/presentation/widgets/main_navigation.dart';
+import 'package:telebirr/presentation/widgets/customnavbar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
