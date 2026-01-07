@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
-
+  final PageController _pageController = PageController();
   final List<Widget> _screens = [
     HomePage(),
     PaymentPage(),
@@ -34,7 +34,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _currentIndex, children: _screens),
+      body: PageView(
+        controller: _pageController,
+        children: _screens,
+        onPageChanged: (index) {
+          setState(() => _currentIndex = index);
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
       floatingActionButton: _currentIndex == 0
           ? Container(
@@ -61,16 +67,17 @@ class _MainPageState extends State<MainPage> {
           : null,
       bottomNavigationBar: CustomBottomNavBar(
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(
+            index,
+          ); // or animateToPage for smooth slide
         },
         navItems: [
           NavItem(
             icon: Icons.home_outlined,
             label: 'Home',
             isActive: _currentIndex == 0,
-            onTap: () => indexofItems(0),
+            onTap: () => _pageController.jumpToPage(0),
             activeColor: null,
             inactiveColor: null,
             activebackgroundColor: null,
@@ -80,7 +87,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icons.payment_outlined,
             label: 'Payment',
             isActive: _currentIndex == 1,
-            onTap: () => indexofItems(1),
+            onTap: () => _pageController.jumpToPage(1),
             activeColor: null,
             inactiveColor: null,
             activebackgroundColor: null,
@@ -90,7 +97,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icons.apps_sharp,
             label: 'Apps',
             isActive: _currentIndex == 2,
-            onTap: () => indexofItems(2),
+            onTap: () => _pageController.jumpToPage(2),
             activeColor: null,
             inactiveColor: null,
             activebackgroundColor: null,
@@ -100,7 +107,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icons.message_outlined,
             label: 'Engage',
             isActive: _currentIndex == 3,
-            onTap: () => indexofItems(3),
+            onTap: () => _pageController.jumpToPage(3),
             activeColor: null,
             inactiveColor: null,
             activebackgroundColor: null,
@@ -110,7 +117,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icons.person_outline,
             label: 'Account',
             isActive: _currentIndex == 4,
-            onTap: () => indexofItems(4),
+            onTap: () => _pageController.jumpToPage(4),
             activeColor: null,
             inactiveColor: null,
             activebackgroundColor: null,
