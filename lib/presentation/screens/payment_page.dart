@@ -25,6 +25,7 @@ class _PaymentPageState extends State<PaymentPage> {
     return Scaffold(
       backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
+        backgroundColor: theme.colorScheme.primary,
         title: Text('Payment'),
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -51,11 +52,18 @@ class _PaymentPageState extends State<PaymentPage> {
                                 ? theme.colorScheme.secondary
                                 : theme.colorScheme.tertiary,
                           ),
-                          headerPadding: EdgeInsets.all(10),
+                          headerPadding: EdgeInsets.only(
+                            left: 40,
+                            top: 15,
+                            bottom: 15,
+                            right: 10,
+                          ),
                           isOpen: expandedIndex == i,
                           header: Text(
                             categories[i],
-                            style: theme.textTheme.labelMedium,
+                            style: expandedIndex == i
+                                ? theme.textTheme.displayMedium
+                                : theme.textTheme.labelMedium,
                           ),
                           content: Padding(
                             padding: const EdgeInsets.all(8.0),
