@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:telebirr/core/constant/lists.dart';
 import 'package:telebirr/core/theme/theme.dart';
+import 'package:telebirr/presentation/widgets/my_carousel.dart';
 import 'package:telebirr/presentation/widgets/mybutton.dart';
 import 'package:telebirr/presentation/widgets/mymenubutton.dart';
 import 'package:telebirr/presentation/widgets/squarecard.dart';
@@ -211,6 +212,12 @@ class _HomePageState extends State<HomePage> {
                       itemCount: serviceExp.length,
                       itemBuilder: (context, index) {
                         return SquareCard(
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => serviceExp[index][2],
+                            ),
+                          ),
                           image: serviceExp[index][1],
                           //  Image.asset(
                           //   'assets/ethiotelecom logo.jpg',
@@ -224,41 +231,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                SliverToBoxAdapter(
-                  child: FlutterCarousel.builder(
-                    itemCount: 4,
-                    itemBuilder: (context, index, realIndex) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        padding: EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: Colors.grey.shade200,
-                        ),
-                        child: Image.asset(
-                          'assets/image.png',
-                          fit: BoxFit.fitWidth,
-                        ),
-                      );
-                    },
-                    options: FlutterCarouselOptions(
-                      enableInfiniteScroll: true,
-                      height: 160,
-                      viewportFraction: 0.9,
-                      autoPlay: true,
-                      showIndicator: true,
-                      slideIndicator: CircularSlideIndicator(
-                        slideIndicatorOptions: SlideIndicatorOptions(
-                          indicatorRadius: 5.0,
-                          indicatorBorderWidth: 1.40,
-                          indicatorBackgroundColor: theme.colorScheme.secondary,
-                          currentIndicatorColor: theme.colorScheme.primary,
-                          indicatorBorderColor: theme.colorScheme.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                SliverToBoxAdapter(child: MyCarousel()),
 
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(
