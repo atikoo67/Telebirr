@@ -85,7 +85,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 3,
                   children: [
-                    Text('Balance (ETB)', style: theme.textTheme.displayMedium),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'Balance (ETB)',
+                        style: theme.textTheme.displayMedium,
+                      ),
+                    ),
                     GestureDetector(
                       onTap: () {
                         setState(() {
@@ -117,9 +123,12 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           spacing: 3,
                           children: [
-                            Text(
-                              'Endekise (ETB)',
-                              style: theme.textTheme.displayMedium,
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                'Endekise (ETB)',
+                                style: theme.textTheme.displayMedium,
+                              ),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -148,9 +157,12 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           spacing: 3,
                           children: [
-                            Text(
-                              'Reward (ETB)',
-                              style: theme.textTheme.displayMedium,
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                'Reward (ETB)',
+                                style: theme.textTheme.displayMedium,
+                              ),
                             ),
                             GestureDetector(
                               onTap: () {
