@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/theme/theme.dart';
+import 'package:telebirr/presentation/screens/main_page.dart';
 
 class AuthenticationPage extends StatefulWidget {
   const AuthenticationPage({super.key});
@@ -13,20 +14,20 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(backgroundColor: theme.colorScheme.onSecondary),
+        appBar: AppBar(backgroundColor: theme.colorScheme.shadow),
         body: Column(
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.2,
-              decoration: BoxDecoration(color: theme.colorScheme.onSecondary),
+              decoration: BoxDecoration(color: theme.colorScheme.shadow),
               child: Column(
                 spacing: 10,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
                     radius: 32,
-                    backgroundColor: theme.colorScheme.shadow,
+                    backgroundColor: theme.colorScheme.scrim,
                     child: Icon(Icons.person, size: 60),
                   ),
                   Text(
@@ -65,21 +66,26 @@ class _AuthenticationPageState extends State<AuthenticationPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Login with another option',
-                          style: theme.textTheme.labelMedium,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 14,
-                          color: theme.textTheme.labelMedium!.color!.withValues(
-                            alpha: 0.6,
+                    child: GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainPage()),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Login with another option',
+                            style: theme.textTheme.labelMedium,
                           ),
-                        ),
-                      ],
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 14,
+                            color: theme.textTheme.labelMedium!.color!
+                                .withValues(alpha: 0.6),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
