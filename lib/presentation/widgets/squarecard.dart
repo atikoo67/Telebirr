@@ -24,7 +24,7 @@ class SquareCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: boxShadow,
       ),
-      padding: EdgeInsets.symmetric(vertical: 12),
+      padding: EdgeInsets.symmetric(vertical: 6),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,

@@ -26,26 +26,23 @@ class _AppsPageState extends State<AppsPage> {
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(20.0),
             sliver: SliverGrid.builder(
               itemCount: 21,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                childAspectRatio: 1,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 1.2,
               ),
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 3),
-                  child: SquareCard(
-                    image: Image.asset(
-                      'assets/ethiotelecom logo.jpg',
+                return SquareCard(
+                  image: Image.asset(
+                    'assets/ethiotelecom logo.jpg',
 
-                      cacheHeight: 45,
-                    ),
-                    title: "My ethiotel",
+                    cacheHeight: 35,
                   ),
+                  title: "My ethiotelecom App",
                 );
               },
             ),
