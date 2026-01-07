@@ -308,16 +308,19 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-            child: MyButton(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.qr_code_scanner_rounded),
-                  Text('Scan QR', style: theme.textTheme.titleLarge),
-                ],
+          SizedBox(
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 25),
+              child: MyButton(
+                onTap: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.qr_code_scanner_rounded),
+                    Text('Scan QR', style: theme.textTheme.displayMedium),
+                  ],
+                ),
               ),
             ),
           ),
