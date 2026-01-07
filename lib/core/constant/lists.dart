@@ -19,6 +19,17 @@ class ExampleServices {
       ),
     ],
     [
+      "Zemen Gebeya",
+      Icon(Icons.receipt_long_sharp, color: theme.colorScheme.primary),
+    ],
+    [
+      "Cash In/Out",
+      Icon(
+        Icons.account_balance_wallet_outlined,
+        color: theme.colorScheme.primary,
+      ),
+    ],
+    [
       "Airtime buy Package",
       Icon(Icons.payment_rounded, color: theme.colorScheme.primary),
     ],
