@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/theme/theme.dart';
+import 'package:telebirr/presentation/screens/features/airtime_page.dart';
 import 'package:telebirr/presentation/screens/features/sendmoney_page.dart';
 
 class AppLists {
@@ -22,6 +23,11 @@ class ExampleServices {
       SendMoneyWithTeleBirr(),
     ],
     [
+      "Airtime buy Package",
+      Icon(Icons.payment_rounded, color: theme.colorScheme.primary),
+      AirTimePage(),
+    ],
+    [
       "Zemen Gebeya",
       Icon(Icons.receipt_long_sharp, color: theme.colorScheme.primary),
       SendMoneyWithTeleBirr(),
@@ -32,11 +38,6 @@ class ExampleServices {
         Icons.account_balance_wallet_outlined,
         color: theme.colorScheme.primary,
       ),
-      SendMoneyWithTeleBirr(),
-    ],
-    [
-      "Airtime buy Package",
-      Icon(Icons.payment_rounded, color: theme.colorScheme.primary),
       SendMoneyWithTeleBirr(),
     ],
     [
