@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/theme/theme.dart';
-import 'package:telebirr/presentation/screens/account_page.dart';
-import 'package:telebirr/presentation/screens/apps_page.dart';
-import 'package:telebirr/presentation/screens/engage_page.dart';
-import 'package:telebirr/presentation/screens/home_page.dart';
-import 'package:telebirr/presentation/screens/payment_page.dart';
+import 'package:telebirr/presentation/screens/home/account_page.dart';
+import 'package:telebirr/presentation/screens/home/apps_page.dart';
+import 'package:telebirr/presentation/screens/home/engage_page.dart';
+import 'package:telebirr/presentation/screens/home/home_page.dart';
+import 'package:telebirr/presentation/screens/home/payment_page.dart';
 import 'package:telebirr/presentation/widgets/customnavbar.dart';
 
 class MainPage extends StatefulWidget {

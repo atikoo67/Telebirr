@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telebirr/core/theme/theme.dart';
-import 'package:telebirr/presentation/screens/sendmoney_page.dart';
+import 'package:telebirr/presentation/screens/features/sendmoney_page.dart';
 
 class AppLists {
   static final List<String> languages = ["English", "አማርኛ", "ትግርኛ", "Oromo"];
