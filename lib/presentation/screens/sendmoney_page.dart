@@ -4,12 +4,25 @@ import 'package:telebirr/presentation/widgets/my_carousel.dart';
 import 'package:telebirr/presentation/widgets/mybutton.dart';
 import 'package:telebirr/presentation/widgets/mytextfield.dart';
 
-class SendMoneyWithTeleBirr extends StatelessWidget {
+class SendMoneyWithTeleBirr extends StatefulWidget {
   const SendMoneyWithTeleBirr({super.key});
 
   @override
+  State<SendMoneyWithTeleBirr> createState() => _SendMoneyWithTeleBirrState();
+}
+
+class _SendMoneyWithTeleBirrState extends State<SendMoneyWithTeleBirr> {
+  TextEditingController controller = TextEditingController();
+  bool isValidNumber = false;
+  @override
   Widget build(BuildContext context) {
-    TextEditingController? controller;
+    setState(() {
+      if ((controller.text.startsWith('9') ||
+          controller.text.startsWith('9'))) {
+        isValidNumber = true;
+      }
+    });
+
     return Scaffold(
       backgroundColor: theme.colorScheme.shadow,
       appBar: AppBar(
@@ -24,8 +37,12 @@ class SendMoneyWithTeleBirr extends StatelessWidget {
             indicatorRadius: 4,
           ),
           Container(
+            decoration: BoxDecoration(
+              color: theme.colorScheme.secondary,
+              borderRadius: BorderRadius.circular(10),
+            ),
             margin: EdgeInsets.all(15),
-            color: theme.colorScheme.secondary,
+
             padding: EdgeInsets.all(15),
             child: Column(
               spacing: 10,
@@ -33,7 +50,7 @@ class SendMoneyWithTeleBirr extends StatelessWidget {
               children: [
                 Text(
                   "Please Enter Mobile Number",
-                  style: theme.textTheme.labelSmall,
+                  style: theme.textTheme.labelMedium,
                 ),
                 MyTextField(
                   // suffix: Row(
@@ -53,29 +70,55 @@ class SendMoneyWithTeleBirr extends StatelessWidget {
                   controller: controller,
                 ),
                 MyButton(
+                  color: isValidNumber
+                      ? theme.colorScheme.outline
+                      : theme.colorScheme.outline.withAlpha(50),
                   onTap: () {},
                   child: Text('Next', style: theme.textTheme.displayMedium),
                 ),
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Recent"),
-              Icon(Icons.delete_rounded, color: theme.colorScheme.tertiary),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Recent"),
+                Icon(Icons.delete_rounded, color: theme.colorScheme.tertiary),
+              ],
+            ),
           ),
 
           ListView.builder(
             itemBuilder: (context, index) {
-              return ListTile(
-                trailing: Icon(Icons.chevron_right),
-                leading: Container(
-                  color: theme.colorScheme.scrim,
-                  child: Icon(Icons.person, color: theme.colorScheme.secondary),
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0,
+                  vertical: 1,
                 ),
-                title: Text('Atinaf', style: theme.textTheme.labelMedium),
+                child: ListTile(
+                  tileColor: theme.colorScheme.secondary,
+                  trailing: Icon(
+                    Icons.chevron_right,
+                    color: theme.colorScheme.tertiary,
+                  ),
+                  leading: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: theme.colorScheme.scrim,
+                    ),
+
+                    child: Icon(
+                      Icons.person,
+                      color: theme.colorScheme.secondary,
+                      size: 30,
+                    ),
+                  ),
+                  title: Text('Atinaf', style: theme.textTheme.labelMedium),
+                ),
               );
             },
             shrinkWrap: true,

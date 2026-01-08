@@ -19,7 +19,7 @@ class MyTextField extends StatelessWidget {
     final theme = Theme.of(context);
     return TextField(
       controller: controller,
-
+      keyboardType: TextInputType.phone,
       style: theme.textTheme.titleSmall,
       decoration: InputDecoration(
         border: OutlineInputBorder(
