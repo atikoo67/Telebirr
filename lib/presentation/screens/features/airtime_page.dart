@@ -24,6 +24,20 @@ class _AirTimePageState extends State<AirTimePage> {
             viewportFraction: 1,
             indicatorRadius: 4,
           ),
+          DefaultTabController(
+            length: 3,
+            child: Row(
+              children: [
+                TabBar(
+                  tabs: [
+                    Tab(text: "Airtime"),
+                    Tab(text: "Package"),
+                    Icon(Icons.favorite_border),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
